@@ -1,0 +1,232 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: black; /* Fondo negro para toda la página */
+    color: white; /* Color de texto blanco por defecto */
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background: transparent; /* Header completamente transparente */
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 1; /* Asegura que el header esté encima del video */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%; /* Ajusta según sea necesario */
+    max-width: 1200px; /* Limita el ancho máximo del contenedor */
+    padding: 0 20px; /* Espaciado interno del contenedor */
+    background: transparent; /* Fondo completamente transparente */
+}
+
+.logo {
+    height: 70px; /* Tamaño del logo en versión escritorio */
+    flex-shrink: 0; /* Evita que el logo se reduzca */
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+}
+
+.cart-button, .member-button {
+    border: none;
+    border-radius: 12px; /* Bordes redondeados */
+    cursor: pointer;
+    font-size: 16px; /* Tamaño de fuente ajustado para mayor legibilidad */
+    display: flex;
+    align-items: center;
+    margin-left: 10px; /* Espacio entre los botones */
+    position: relative; /* Necesario para el ajuste de animación */
+    padding: 15px 30px; /* Tamaño del botón aumentado para visibilidad */
+    color: white; /* Texto en blanco */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco casi transparente */
+    border: 2px solid white; /* Borde blanco del botón */
+    height: 50px; /* Altura del botón ajustada para que coincida con el botón de miembro */
+}
+
+.cart-button {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco casi transparente */
+    border: 2px solid white; /* Borde blanco del botón */
+}
+
+.cart-button i {
+    font-size: 20px; /* Tamaño del ícono */
+    margin-right: 8px; /* Espacio entre ícono y texto */
+}
+
+.member-button {
+    overflow: hidden; /* Asegura que el texto no se salga del botón */
+    position: relative; /* Necesario para posicionar el texto */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el texto horizontalmente */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.member-text {
+    display: inline-block;
+    position: relative; /* Para mantener el texto dentro del botón */
+    animation: bounce 2s infinite;
+    white-space: nowrap; /* Evita el salto de línea en el texto */
+}
+
+/* Animación de rebote */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10%);
+    }
+    60% {
+        transform: translateY(-5%);
+    }
+}
+
+.member-button:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Blanco ligeramente más opaco en hover */
+}
+
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 65vh; /* Altura del video para la versión de escritorio */
+    overflow: hidden;
+    margin: 0; /* Asegura que no haya margen adicional */
+    padding: 0; /* Asegura que no haya relleno adicional */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra gris oscuro para profundidad */
+    border-radius: 8px; /* Esquinas redondeadas opcionales */
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra todo el área sin deformarse */
+    display: block; /* Elimina el espacio blanco que podría ser causado por los bordes del video */
+    position: absolute; /* Para posicionar correctamente la sombra */
+    left: 0;
+    top: 0;
+    box-shadow: -15px 0 15px -5px rgba(0, 0, 0, 0.5); /* Sombra hacia la izquierda */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent); /* Degradado que se desvanece a la derecha */
+}
+
+/* Nueva sección */
+.bottom-section {
+    background-color: black; /* Fondo negro */
+    padding: 20px;
+    text-align: center; /* Centra el texto horizontalmente */
+    display: flex; /* Usa flexbox para alinear ítemes */
+    flex-direction: column; /* Alinea el texto y el álbum verticalmente */
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+}
+
+.bottom-text {
+    color: white; /* Texto blanco */
+    font-size: 24px; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    margin: 0 0 10px; /* Elimina margen superior e inferior, agrega margen inferior */
+    display: flex;
+    align-items: center; /* Alinea verticalmente el texto con el ícono */
+}
+
+.camera-icon {
+    font-size: 30px; /* Tamaño del ícono de la cámara */
+    color: white; /* Color blanco para el ícono */
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+}
+
+/* Estilo para el contenedor del álbum de imágenes */
+.image-gallery-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el álbum */
+    justify-content: center; /* Centra horizontalmente el álbum */
+    position: relative;
+    width: 80%; /* Ajusta el tamaño del contenedor del álbum */
+    max-width: 1000px; /* Ajusta el tamaño máximo del contenedor del álbum */
+    margin: 20px auto; /* Centra el contenedor horizontalmente y agrega espacio superior e inferior */
+}
+
+.image-gallery {
+    position: relative;
+    width: 100%; /* Ajusta el tamaño del contenedor de imágenes */
+    overflow: hidden; /* Oculta las imágenes que están fuera del contenedor */
+}
+
+.gallery-image {
+    width: 100%; /* Asegura que las imágenes ocupen el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de aspecto */
+    display: none; /* Oculta todas las imágenes por defecto */
+}
+
+.gallery-image.active {
+    display: block; /* Solo la imagen activa será visible */
+}
+
+/* Botones de navegación */
+.prev-button, .next-button {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    width: 40px; /* Tamaño del botón */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prev-button {
+    left: 10px;
+}
+
+.next-button {
+    right: 10px;
+}
+
+/* Estilo para el texto adicional */
+.additional-text {
+    color: white; /* Texto blanco */
+    font-size: 24px; /* Tamaño del texto igual al del .bottom-text */
+    font-weight: bold; /* Texto en negrita */
+    margin: 10px 0; /* Agrega margen superior e inferior */
+    text-align: center; /* Centra el texto */
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    header {
+        position: static; /* Cambia a static para evitar problemas de superposición en móviles */
+        padding: 10px; /* Ajusta el padding según sea necesario */
+    }
+
+    .header-container {
+        flex-direction: column; /* Coloca el logo y los botones en una columna */
+        align-items: center; /* Centra todos los elementos horizontalmente */
+        width: 100%; /* Asegura que el contenedor use todo el ancho disponible */
+        padding: 0; /* Elimina el padding lateral */
+    }
+
+    .logo {
+        height: 50px; /* Tamaño del logo en pantallas pequeñas */
+        margin-bottom: 10px; /* Añade margen debajo del logo */
+    }
+
+    .buttons-container {
+        display:
